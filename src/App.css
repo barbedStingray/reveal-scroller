@@ -21,26 +21,38 @@
   flex-flow: row nowrap;
 }
 
+
+/* side scroller left */
+
 .scroller {
   border: 2px solid greenyellow;
   flex: 1;
   overflow-y: auto;
-  /* scroll-snap-type: y mandatory; */
-
-
+  scroll-snap-type: y mandatory;
 }
 
 p {
   border: 2px solid green;
-  /* scroll-snap-align: start; */
+  scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
+
+
+/* picture scroller right */
+
 .reveal {
   border: 2px solid purple;
   flex: 2;
-
+  overflow: scroll;
+  
 }
+
+.picture {
+  width: 100%;
+  height: 100%;
+}
+
