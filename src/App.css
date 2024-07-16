@@ -4,3 +4,31 @@
   box-sizing: border-box;
 }
 
+.App {
+  border: 2px solid blue;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.revealScroller {
+  border: 2px solid red;
+  width: 75vh;
+  height: 65vh;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.scroller {
+  border: 2px solid greenyellow;
+  flex: 1;
+
+}
+
+.reveal {
+  border: 2px solid purple;
+  flex: 2;
+
+}
