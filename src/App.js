@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 
 import fruits from './Images/fruits.jpg';
@@ -7,7 +7,6 @@ import smoothie from './Images/smoothie.jpg';
 import popcorn from './Images/popcorn.jpg';
 
 function App() {
-  // const [currentItem, setCurrentItem] = useState('Fruits');
   const scrollerRef = useRef(null);
   const revealRef = useRef(null);
 
@@ -20,7 +19,6 @@ function App() {
   };
 
   useEffect(() => {
-
     const handleScroll = () => {
       const scrollTop = scrollerRef.current.scrollTop;
       const scrollHeight = scrollerRef.current.scrollHeight;
@@ -33,15 +31,29 @@ function App() {
       revealRef.current.scrollTop = scrollFraction * (revealRef.current.scrollHeight - revealRef.current.clientHeight);
     };
 
+    // Set the initial scroll position
+    const setInitialScroll = () => {
+      const scroller = scrollerRef.current;
+      const reveal = revealRef.current;
+
+      // Calculate the height of each section
+      const itemCount = items.length;
+      const revealHeight = reveal.scrollHeight / itemCount;
+
+      // Set the scrollTop for scroller to show the first item
+      scroller.scrollTop = 0;
+      // Set the scrollTop for reveal to show first image
+      reveal.scrollTop = (itemCount - 1) * revealHeight;
+    };
+
+    setInitialScroll(); // Set the initial position
     const scroller = scrollerRef.current;
     scroller.addEventListener('scroll', handleScroll);
 
     return () => {
       scroller.removeEventListener('scroll', handleScroll);
     };
-
-    
-  }, []);
+  }, [items.length]);
 
   return (
     <div className="App">

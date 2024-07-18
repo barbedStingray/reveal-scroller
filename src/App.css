@@ -21,9 +21,7 @@
   flex-flow: row nowrap;
 }
 
-
 /* side scroller left */
-
 .scroller {
   border: 2px solid greenyellow;
   flex: 1;
@@ -40,15 +38,13 @@ p {
   height: 100%;
 }
 
-
-
 /* picture scroller right */
-
 .reveal {
   border: 2px solid purple;
   flex: 2;
   overflow: scroll;
-  
+  /* disables user interation */
+  pointer-events: none;
 }
 
 .picture {
